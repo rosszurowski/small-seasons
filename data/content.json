@@ -1,0 +1,196 @@
+{
+  "sekki": [
+    {
+      "id": "risshun",
+      "kanji": "立春",
+      "romanji": "Risshun",
+      "meaning": "start of spring",
+      "startDate": "02-04",
+      "description": "The first day of spring according to the lunar calendar."
+    },
+    {
+      "id": "usui",
+      "kanji": "雨水",
+      "romanji": "Usui",
+      "meaning": "rain water",
+      "startDate": "02-18",
+      "description": "When the snow melts away."
+    },
+    {
+      "id": "keichitsu",
+      "kanji": "啓蟄",
+      "romanji": "Keichitsu",
+      "meaning": "going-out of worms",
+      "startDate": "03-06",
+      "description": "When worms start to come out of the ground after a long hibernation."
+    },
+    {
+      "id": "shunbun",
+      "kanji": "春分",
+      "romanji": "Shunbun",
+      "meaning": "spring equinox",
+      "startDate": "03-21",
+      "description": "When winter is gone and spring starts."
+    },
+    {
+      "id": "seimei",
+      "kanji": "清明",
+      "romanji": "Seimei",
+      "meaning": "clear and bright",
+      "startDate": "04-04",
+      "description": "15 days after the spring equinox."
+    },
+    {
+      "id": "koku",
+      "kanji": "穀雨",
+      "romanji": "Koku",
+      "meaning": "rain for harvests",
+      "startDate": "04-21",
+      "description": "When spring rain falls for the coming harvest season."
+    },
+    {
+      "id": "rikka",
+      "kanji": "立夏",
+      "romanji": "Rikka",
+      "meaning": "start of summer",
+      "startDate": "05-06",
+      "description": "When the songs of summer begin."
+    },
+    {
+      "id": "shoman",
+      "kanji": "小満",
+      "romanji": "Shoman",
+      "meaning": "half bloom",
+      "startDate": "05-21",
+      "description": "When flowers and plants start to come out."
+    },
+    {
+      "id": "boshu",
+      "kanji": "芒種",
+      "romanji": "Boshu",
+      "meaning": "seeds of cereals",
+      "startDate": "06-05",
+      "description": "Seeds of the cereals. The time of year when people start to seed the soil."
+    },
+    {
+      "id": "geshi",
+      "kanji": "夏至",
+      "romanji": "Geshi",
+      "meaning": "reaching summer",
+      "startDate": "06-21",
+      "description": "The longest days of the year. The sun reaches its highest point, accompanied by mist and rains. A sweet woodsy dryness hangs in the air. Irises bloom and crow-dippers start to sprout."
+    },
+    {
+      "id": "shousho",
+      "kanji": "小暑",
+      "romanji": "Shousho",
+      "meaning": "small heat",
+      "startDate": "07-07",
+      "description": "When the summer heat begins. Warm winds blow."
+    },
+    {
+      "id": "taisho",
+      "kanji": "大暑",
+      "romanji": "Taisho",
+      "meaning": "big heat",
+      "startDate": "07-23",
+      "description": "The hottest time of the year."
+    },
+    {
+      "id": "risshu",
+      "kanji": "立秋",
+      "romanji": "Risshu",
+      "meaning": "start of autumn",
+      "startDate": "08-08",
+      "description": "When signs of autumn can be seen."
+    },
+    {
+      "id": "shosho",
+      "kanji": "処暑",
+      "romanji": "Shosho",
+      "meaning": "keeping out of the heat",
+      "startDate": "08-23",
+      "description": "When the summer heat is forgotten."
+    },
+    {
+      "id": "hakuro",
+      "kanji": "白露",
+      "romanji": "Hakuro",
+      "meaning": "white dew",
+      "startDate": "09-07",
+      "description": "When drops of dew can be seen on the ground."
+    },
+    {
+      "id": "shubun",
+      "kanji": "秋分",
+      "romanji": "Shubun",
+      "meaning": "the autumnal equinox",
+      "startDate": "09-23",
+      "description": "When day and night are of equal length everywhere."
+    },
+    {
+      "id": "kanro",
+      "kanji": "寒露",
+      "romanji": "Kanro",
+      "meaning": "cold dew",
+      "startDate": "10-08",
+      "description": "When temperature becomes lower."
+    },
+    {
+      "id": "soko",
+      "kanji": "霜降",
+      "romanji": "Soko",
+      "meaning": "frosting",
+      "startDate": "10-23",
+      "description": "When it starts frosting."
+    },
+    {
+      "id": "ritto",
+      "kanji": "立冬",
+      "romanji": "Ritto",
+      "meaning": "start of winter",
+      "startDate": "11-08",
+      "description": "When the winter season starts."
+    },
+    {
+      "id": "shosetsu",
+      "kanji": "小雪",
+      "romanji": "Shosetsu",
+      "meaning": "small snow",
+      "startDate": "11-23",
+      "description": "When a light snowfall can be seen."
+    },
+    {
+      "id": "taisetsu",
+      "kanji": "大雪",
+      "romanji": "Taisetsu",
+      "meaning": "big snow",
+      "startDate": "12-08",
+      "description": "When it starts snowing hard"
+    },
+    {
+      "id": "toji",
+      "kanji": "冬至",
+      "romanji": "Toji",
+      "meaning": "reaching winter",
+      "startDate": "12-22",
+      "description": "When day time becomes the shortest in the year."
+    },
+    {
+      "id": "shokan",
+      "kanji": "小寒",
+      "romanji": "Shokan",
+      "meaning": "small chill",
+      "startDate": "01-06",
+      "description": "When the winter chill starts."
+    },
+    {
+      "id": "daikan",
+      "kanji": "大寒",
+      "romanji": "Daikan",
+      "meaning": "big chill",
+      "startDate": "01-20",
+      "description": "When the chill becomes severe."
+    }
+  ]
+}

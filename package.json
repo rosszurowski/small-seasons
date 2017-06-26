@@ -1,0 +1,20 @@
+{
+  "name": "@rosszurowski/sekki",
+  "version": "1.0.0",
+  "description": "A micro-site about the 24 Japanese sub-seasons (\"sekki\")",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "next": "beta",
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0",
+    "tinytime": "^0.2.6"
+  },
+  "scripts": {
+    "start": "next",
+    "build": "NODE_ENV=production next build && next export -o dist"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^2.7.1"
+  }
+}
