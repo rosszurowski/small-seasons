@@ -5,6 +5,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "emotion": "^3.0.2",
     "next": "beta",
     "react": "^15.6.0",
     "react-dom": "^15.6.0",

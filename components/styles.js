@@ -7,6 +7,7 @@ const map = (obj, fn) => Array.isArray(obj)
 const spacing = [0, 4, 8, 16, 24, 32, 64, 128];
 const fontSize = [48, 36, 24, 20, 16, 14, 11];
 
+const opacity = [1.0, 0.75, 0.5, 0.3, 0.1];
 const sizes = [0.5, 1, 2, 3, 4];
 const maxWidths = [20, 40];
 
@@ -64,6 +65,16 @@ const classes = (suffix = '') => `
   `).join('')}
 `;
 
+const getSelectorValue = val => val.toString().replace(/\./g, 'p');
+
+const colorString = map(colors, (val, key) => `.c-${key} { color: ${val}; }`).join('\n');
+const backgroundColorString = map(colors, (val, key) => `.bgc-${key} { background-color: ${val}; }`).join('\n');
+const sizesString = map(sizes, (val, key) => `
+  .w-${getSelectorValue(val)} { width: ${val}rem; }
+  .h-${getSelectorValue(val)} { height: ${val}rem; }
+`).join('');
+const opacityString = map(opacity, (val, key) => `.o-${getSelectorValue(val)} { opacity: ${val}; }`).join('\n');
+
 export default () => (
   <style jsx global>{`
     *,
@@ -74,24 +85,28 @@ export default () => (
 
     html,
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 21px;
-      line-height: 1.5;
       margin: 0;
       padding: 0;
     }
 
-    ${map(colors, (val, key) => `.c-${key} { color: ${val}; }`).join('\n')}
-    ${map(colors, (val, key) => `.bgc-${key} { background-color: ${val}; }`).join('\n')}
+    html {
+      background: #f3efee;
+      font-family: 'Sauna-Roman', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 28px;
+      line-height: 1.3;
+    }
+
+    ${colorString}
+    ${backgroundColorString}
+    ${opacityString}
 
     .mw-90p { max-width: 90%; }
     .mw-20 { max-width: 20rem; }
     .mw-40 { max-width: 40rem; }
 
-    ${map(sizes, (val, key) => `
-      .w-${val.toString().replace(/\./g, 'p')} { width: ${val}rem; }
-      .h-${val.toString().replace(/\./g, 'p')} { height: ${val}rem; }
-    `).join('')}
+    ${sizesString}
+    .h-80vh { height: 80vh; }
+    .h-100vh { height: 100vh; }
 
     .c1{width:8.333333333333332%}
     .c2{width:16.666666666666664%}
