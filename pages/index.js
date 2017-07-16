@@ -1,48 +1,51 @@
-import React from 'react';
-import Head from 'next/head';
+import React, { Component } from 'react';
+import Swipe from 'react-swipe';
+import Page from 'components/page';
 
-import Styles from 'components/styles';
 import content from 'data/content.json';
 import tinytime from 'tinytime';
 
 const formatDate = tinytime('{MM} {DD}').render;
-const getSeasonName = id => {
-  switch (id) {
-    case 'risshun':
-      return 'Spring';
-    case 'rikka':
-      return 'Summer';
-    case 'risshu':
-      return 'Autumn';
-    case 'ritto':
-      return 'Winter';
-  }
+
+const getSekkiDate = sekki => {
+  const year = (new Date()).getFullYear();
+  const [month, day] = sekki.startDate.split('-');
+
+  return new Date(year, month, day);
 }
 
-const getOffset = i => i > 9 ? (9 - (i % 9)) : i % 9;
+const isActiveSekki = i => {
+  const now = new Date();
+  const startDate = getSekkiDate(content.sekki[i]);
+  const endDate = getSekkiDate(content.sekki[(i + 1) % content.sekki.length]);
 
-export default () => (
-  <div>
-    <Head>
-      <title>Small Seasons</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Head>
+  return startDate <= now && now <= endDate;
+}
 
-    <Styles />
+export default () => {
+  const sekkis = content.sekki.map((sekki, i) => Object.assign(sekki, { active: isActiveSekki(i) }));
 
-    <div className="ph-7 pv-6 mw-40 mh-auto">
-      {content.sekki.map((sekki, i) => (
-        <div key={sekki.id} className="mb-7 fs-2 x xd-column xj-center">
-          {/* <div>{getSeasonName(sekki.id)}</div> */}
-          <div className={`ml-auto mb-2 c-${sekki.id}`}>{formatDate(new Date(sekki.startDate))}</div>
-          {/* <div className="mb-3">
-            <div className="mr-2">
-              <span className={`d-inlineBlock br-round va-middle w-0p5 h-0p5 bgc-${sekki.id}`} />
+  return (
+    <Page title="Index" id="index">
+      <div className="p-fixed top-0 left-0 right-0 bottom-0 z-1">
+        <Swipe>
+          {sekkis.map(sekki => (
+            <div key={sekki.id}>
+              <div className="x xd-column xj-center h-100vh">
+                <div className="ph-3 f-serif ta-center h-100p">
+                  <div className="p-relative x xa-center xj-center h-50vh mt-6">
+                    <div className={`p-absolute p-center w-2 h-2 br-round z-1 bgc-${sekki.id}`} />
+                    <div className="p-relative fs-3 z-2">{sekki.english}</div>
+                  </div>
+                  <div className="mt-3 fs-5">
+                    {sekki.description}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div> */}
-          <div><span>{sekki.english}</span>. <span className="o-0p5">{sekki.description}</span></div>
-        </div>
-      ))}
-    </div>
-  </div>
-);
+          ))}
+        </Swipe>
+      </div>
+    </Page>
+  );
+}

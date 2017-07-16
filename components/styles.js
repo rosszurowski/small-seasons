@@ -11,9 +11,7 @@ const opacity = [1.0, 0.75, 0.5, 0.3, 0.1];
 const sizes = [0.5, 1, 2, 3, 4];
 const maxWidths = [20, 40];
 
-const colors = {
-  gray: '#9fa0a0',
-  // sekki
+const sekki = {
   shokan: '#557FBF',
   daikan: '#77A9D4',
   risshun: '#71A5C6',
@@ -40,8 +38,22 @@ const colors = {
   toji: '#6787B9',
 };
 
+const colors = {
+  black: '#242424',
+  gray: '#9fa0a0',
+  dark: '#353126',
+  light: '#f4f3ee',
+  ...sekki,
+};
+
+const font = {
+  sans: '-apple-system, BlinkMacSystemFont, sans-serif',
+  serif: `'Quadraat-Regular', serif`,
+};
+
 const classes = (suffix = '') => `
   ${spacing.map((val, i) => `
+    .pa-${i}${suffix} { padding: ${val}px; }
     .pt-${i}${suffix} { padding-top: ${val}px; }
     .pl-${i}${suffix} { padding-left: ${val}px; }
     .pr-${i}${suffix} { padding-right: ${val}px; }
@@ -77,6 +89,27 @@ const opacityString = map(opacity, (val, key) => `.o-${getSelectorValue(val)} { 
 
 export default () => (
   <style jsx global>{`
+    @font-face {
+      font-family: 'Quadraat';
+      font-weight: normal;
+      font-style: normal;
+      src: url('/static/fonts/Quadraat-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Quadraat';
+      font-weight: bold;
+      font-style: normal;
+      src: url('/static/fonts/Quadraat-Bold.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Quadraat';
+      font-weight: bold;
+      font-style: italic;
+      src: url('/static/fonts/Quadraat-BoldItalic.woff2') format('woff2');
+    }
+
     *,
     *:before,
     *:after {
@@ -90,11 +123,18 @@ export default () => (
     }
 
     html {
-      background: #f3efee;
-      font-family: 'Sauna-Roman', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 28px;
-      line-height: 1.3;
+      font-family: ${font.sans};
+      font-size: 16px;
+      line-height: 1.5;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .f-serif { font-family: ${font.serif}; }
+    .f-sans { font-family: ${font.sans}; }
 
     ${colorString}
     ${backgroundColorString}
@@ -105,6 +145,9 @@ export default () => (
     .mw-40 { max-width: 40rem; }
 
     ${sizesString}
+
+    .h-100p { height: 100%; }
+    .h-50vh { height: 50vh; }
     .h-80vh { height: 80vh; }
     .h-100vh { height: 100vh; }
 
@@ -140,6 +183,18 @@ export default () => (
     .d-inlineBlock { display: inline-block; }
     .d-block { display: block; }
 
+    .p-relative { position: relative; }
+    .p-absolute { position: absolute; }
+    .p-fixed { position: fixed; }
+
+    .top-0 { top: 0; }
+    .left-0 { left: 0; }
+    .right-0 { right: 0; }
+    .bottom-0 { bottom: 0; }
+    .p-center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+    .o-50p { opacity: 0.5; }
+
     .x { display: flex; }
     .xx { flex: 1 0 auto; }
     .xd-row { flex-direction: row; }
@@ -160,6 +215,7 @@ export default () => (
     .xw-noWrap { flex-wrap: nowrap; }
 
     .fs-italic { font-style: italic; }
+    .ls-loose { letter-spacing: 0.5px; }
 
     .ofx-scroll { overflow-x: scroll; }
     .ofx-hidden { overflow-x: hidden; }
@@ -175,6 +231,10 @@ export default () => (
     .va-baseline { vertical-align: baseline; }
     .va-middle { vertical-align: middle; }
     .va-bottom { vertical-align: bottom; }
+
+    .z-1 { z-index: 1; }
+    .z-2 { z-index: 2; }
+    .z-9 { z-index: 9; }
 
     ${classes()}
     @media only screen and (min-width: 479px) {

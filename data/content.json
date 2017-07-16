@@ -4,23 +4,23 @@
       "id": "risshun",
       "kanji": "立春",
       "romanji": "Risshun",
-      "english": "Start of spring",
+      "title": "Start of spring",
       "startDate": "02-04",
-      "description": "The first hints of an approaching spring. Eastern winds melt the ice on the ground, fish appear in their icy ponds and the bush warblers start singing in the mountains."
+      "description": "First hints of an approaching spring. The ground begins to thaw, fish appear in their icy ponds and the bush warblers start singing in the mountains."
     },
     {
       "id": "usui",
       "kanji": "雨水",
       "romanji": "Usui",
-      "english": "Rain waters",
+      "title": "Rain waters",
       "startDate": "02-18",
-      "description": "Snow melts away, mist lingers in the air, and the grasses begin to sprouting. Trees release their first buds as the ground fills with water."
+      "description": "Snow recedes, mist lingers in the air, and the grasses begin to sprout. Trees release their first buds as the ground soaks up meltwater."
     },
     {
       "id": "keichitsu",
       "kanji": "啓蟄",
       "romanji": "Keichitsu",
-      "english": "Going-out of the insects",
+      "title": "Going-out of the insects",
       "startDate": "03-06",
       "description": "That time of year when the first bugs surface from their hibernation. Caterpillars start their transformation to butterflies."
     },
@@ -28,7 +28,7 @@
       "id": "shunbun",
       "kanji": "春分",
       "romanji": "Shunbun",
-      "english": "Vernal equinox",
+      "title": "Vernal equinox",
       "startDate": "03-21",
       "description": "When winter is gone and spring starts. Sparrows begin to nest in the trees. Cherry blossoms start to bloom. Heavy rains bring distant thunder."
     },
@@ -36,7 +36,7 @@
       "id": "seimei",
       "kanji": "清明",
       "romanji": "Seimei",
-      "english": "Clear and bright",
+      "title": "Clear and bright",
       "startDate": "04-04",
       "description": "Shortly after the equinox, when the swallows return home and the geese fly north. The first rainbows of the season appear."
     },
@@ -44,7 +44,7 @@
       "id": "koku",
       "kanji": "穀雨",
       "romanji": "Koku",
-      "english": "Rain for harvests",
+      "title": "Rain for harvests",
       "startDate": "04-21",
       "description": "Reeds sprout by the rivers and rice seedlings grow in the fields after the last frost has passed. Peonies bloom in the wilderness."
     },
@@ -52,7 +52,7 @@
       "id": "rikka",
       "kanji": "立夏",
       "romanji": "Rikka",
-      "english": "Start of summer",
+      "title": "Start of summer",
       "startDate": "05-06",
       "description": "The songs of summer begin. Frogs start their singing, and birds chirp in the forests. Worms surface from underground, bamboo shoots begin to sprout."
     },
@@ -60,7 +60,7 @@
       "id": "shoman",
       "kanji": "小満",
       "romanji": "Shoman",
-      "english": "Small blooming",
+      "title": "Small blooming",
       "startDate": "05-21",
       "description": "When flowers and plants start to come out. Silkworms start feasting on mulberry leaves, and the safflower workers start their picking. Wheat begins to ripen."
     },
@@ -68,7 +68,7 @@
       "id": "boshu",
       "kanji": "芒種",
       "romanji": "Boshu",
-      "english": "Seeds and cereals",
+      "title": "Seeds and cereals",
       "startDate": "06-05",
       "description": "The time of year when people start to seed the soil. Praying mantises hatch. Rotten grass become home to fireflies. The plums become more yellow."
     },
@@ -76,7 +76,7 @@
       "id": "geshi",
       "kanji": "夏至",
       "romanji": "Geshi",
-      "english": "Reaching summer",
+      "title": "Reaching summer",
       "startDate": "06-21",
       "description": "The longest days of the year. The sun reaches its highest point, accompanied by mist and rains. A sweet woodsy dryness hangs in the air. Irises bloom and crow-dippers start to sprout."
     },
@@ -84,7 +84,7 @@
       "id": "shousho",
       "kanji": "小暑",
       "romanji": "Shousho",
-      "english": "Small heat",
+      "title": "Small heat",
       "startDate": "07-07",
       "description": "The summer heat begins. Warm winds blow, lotus' blossom, and young hawks are learning to fly."
     },
@@ -92,7 +92,7 @@
       "id": "taisho",
       "kanji": "大暑",
       "romanji": "Taisho",
-      "english": "Big heat",
+      "title": "Big heat",
       "startDate": "07-23",
       "description": "Summer heat is at its strongest, followed by great rains. The air is thick and humid and the trees are busy making seeds."
     },
@@ -100,7 +100,7 @@
       "id": "risshu",
       "kanji": "立秋",
       "romanji": "Risshu",
-      "english": "Start of autumn",
+      "title": "Start of autumn",
       "startDate": "08-08",
       "description": "The first signs of autumn can be seen. Cooler winds blow, and thick fogs roll through the hills in the morning."
     },
@@ -108,7 +108,7 @@
       "id": "shosho",
       "kanji": "処暑",
       "romanji": "Shosho",
-      "english": "Lessening heat",
+      "title": "Lessening heat",
       "startDate": "08-23",
       "description": "The heat of summer has been forgotten. The rice has ripened and cotton flowers are in bloom."
     },
@@ -116,7 +116,7 @@
       "id": "hakuro",
       "kanji": "白露",
       "romanji": "Hakuro",
-      "english": "White dew",
+      "title": "White dew",
       "startDate": "09-07",
       "description": "When drops of dew can be seen on the grass. Swallows leave for the year, and the wagtails sing."
     },
@@ -124,7 +124,7 @@
       "id": "shubun",
       "kanji": "秋分",
       "romanji": "Shubun",
-      "english": "Autumnal equinox",
+      "title": "Autumnal equinox",
       "startDate": "09-23",
       "description": "Day and night are of equal length. Farmers drain their fields and insects hide underground."
     },
@@ -132,7 +132,7 @@
       "id": "kanro",
       "kanji": "寒露",
       "romanji": "Kanro",
-      "english": "Cold dew",
+      "title": "Cold dew",
       "startDate": "10-08",
       "description": "Temperatures begin dropping. The geese return for the winter. Crickets chirp for the last time in the year."
     },
@@ -140,7 +140,7 @@
       "id": "soko",
       "kanji": "霜降",
       "romanji": "Soko",
-      "english": "Frosting",
+      "title": "Frosting",
       "startDate": "10-23",
       "description": "The first frosts. Rains disappear as the maple leaves and ivy turn yellow."
     },
@@ -148,7 +148,7 @@
       "id": "ritto",
       "kanji": "立冬",
       "romanji": "Ritto",
-      "english": "Start of winter",
+      "title": "Start of winter",
       "startDate": "11-08",
       "description": "When the winter season starts. Land begins to freeze, rivers and streams shortly to follow."
     },
@@ -156,7 +156,7 @@
       "id": "shosetsu",
       "kanji": "小雪",
       "romanji": "Shosetsu",
-      "english": "Small snow",
+      "title": "Small snow",
       "startDate": "11-23",
       "description": "Light snowfall appears. Northern winds have blown the last leaves from the trees."
     },
@@ -164,7 +164,7 @@
       "id": "taisetsu",
       "kanji": "大雪",
       "romanji": "Taisetsu",
-      "english": "Big snow",
+      "title": "Big snow",
       "startDate": "12-08",
       "description": "The cold sets in. Bears are hibernating in their dens, and the salmon have swam upstream. Nature is quiet."
     },
@@ -172,7 +172,7 @@
       "id": "toji",
       "kanji": "冬至",
       "romanji": "Toji",
-      "english": "Winter solstice",
+      "title": "Winter solstice",
       "startDate": "12-22",
       "description": "When days are the shortest in the whole year. Deer in the mountains shed their antlers, and wheat sprouts rest underneath the snow."
     },
@@ -180,7 +180,7 @@
       "id": "shokan",
       "kanji": "小寒",
       "romanji": "Shokan",
-      "english": "Small cold",
+      "title": "Small cold",
       "startDate": "01-06",
       "description": "Winter chills start as the temperature quickly drops. Pheasant calls can be heard in the forest"
     },
@@ -188,7 +188,7 @@
       "id": "daikan",
       "kanji": "大寒",
       "romanji": "Daikan",
-      "english": "Big cold",
+      "title": "Big cold",
       "startDate": "01-20",
       "description": "Temperatures drop low and the chill deepens. Ice thickens on the streams. Hens huddle together and begin laying eggs."
     }
