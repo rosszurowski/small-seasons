@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Swipe from 'react-swipe';
 import Page from 'components/page';
 
 import uniq from 'lodash/uniq';

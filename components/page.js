@@ -13,7 +13,6 @@ const Page = ({ id, title, children, isDark }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
     <Styles />
-    <BodyClassName className={isDark ? 'bgc-dark' : 'bgc-light'} />
     {/* <Header pageId={id} pageName={title} isDark={isDark} /> */}
     <main>
       {children}

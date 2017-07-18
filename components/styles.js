@@ -131,6 +131,7 @@ export default () => (
     }
 
     html {
+      background-color: ${colors.light};
       font-family: ${font.serif};
       font-size: 16px;
       line-height: 1.5;
