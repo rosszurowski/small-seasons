@@ -93,7 +93,7 @@ export default () => {
                     <td>{titleize(sekki.romanji)}</td>
                     <td>{sekki.kanji}</td>
                     <td>{sekki.title}</td>
-                    <td>{''}</td>
+                    <td>{sekki.notes}</td>
                     <td>{formatDate(parseDayOfMonth(sekki.startDate))}</td>
                   </tr>
                 ))}
