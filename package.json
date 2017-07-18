@@ -14,7 +14,7 @@
     "tinytime": "^0.2.6"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "next",
     "build": "NODE_ENV=production next build && next export -o dist"
   },
   "devDependencies": {

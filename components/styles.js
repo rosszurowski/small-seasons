@@ -11,7 +11,7 @@ const opacity = [1.0, 0.75, 0.5, 0.3, 0.1];
 const sizes = [0.5, 1, 2, 3, 4];
 const maxWidths = [20, 40];
 
-const sekki = {
+const sekkiColors = {
   shokan: '#557FBF',
   daikan: '#77A9D4',
   risshun: '#71A5C6',
@@ -24,7 +24,7 @@ const sekki = {
   shoman: '#E9F5BF',
   boshu: '#F5F4A7',
   geshi: '#F9EC5F',
-  shousho: '#FCBA4A',
+  shousho: '#FCD084', //'#FCBA4A',
   taisho: '#FF9E51',
   risshu: '#FE8860',
   shosho: '#FC885B',
@@ -38,12 +38,20 @@ const sekki = {
   toji: '#6787B9',
 };
 
+const seasonColors = {
+  spring: '#f0f4ef',
+  summer: '#f7f5e8',
+  autumn: '#f8e7e1',
+  winter: '#e2e4eb',
+};
+
 const colors = {
   black: '#242424',
   gray: '#9fa0a0',
   dark: '#353126',
-  light: '#f4f3ee',
-  ...sekki,
+  light: '#f7f6f6',
+  ...seasonColors,
+  ...sekkiColors,
 };
 
 const font = {
@@ -123,7 +131,7 @@ export default () => (
     }
 
     html {
-      font-family: ${font.sans};
+      font-family: ${font.serif};
       font-size: 16px;
       line-height: 1.5;
     }
@@ -133,8 +141,19 @@ export default () => (
       text-decoration: none;
     }
 
+    p a {
+      border-bottom: 1px currentColor solid;
+    }
+
+    table {
+      width: 100%;
+    }
+
     .f-serif { font-family: ${font.serif}; }
     .f-sans { font-family: ${font.sans}; }
+
+    .fw-normal { font-weight: normal; }
+    .fw-bold { font-weight: bold; }
 
     ${colorString}
     ${backgroundColorString}
@@ -143,9 +162,11 @@ export default () => (
     .mw-90p { max-width: 90%; }
     .mw-20 { max-width: 20rem; }
     .mw-40 { max-width: 40rem; }
+    .mw-60 { max-width: 80rem; }
 
     ${sizesString}
 
+    .w-90p { width: 90%; }
     .h-100p { height: 100%; }
     .h-50vh { height: 50vh; }
     .h-80vh { height: 80vh; }
@@ -177,6 +198,7 @@ export default () => (
     .co11{margin-left:91.66666666666666%}
     .co12{margin-left:100%}
 
+    .br-4 { border-radius: 4px; }
     .br-round { border-radius: 50%; }
 
     .d-inline { display: inline; }
@@ -222,10 +244,13 @@ export default () => (
 
     .lh-1p0 { line-height: 1.0; }
     .lh-1p5 { line-height: 1.5; }
+    .lh-2p0 { line-height: 2.0; }
 
     .ta-left { text-align: left; }
     .ta-center { text-align: center; }
     .ta-right { text-align: right; }
+
+    .tt-uppercase { text-transform: uppercase; }
 
     .va-top { vertical-align: top; }
     .va-baseline { vertical-align: baseline; }

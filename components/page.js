@@ -14,7 +14,7 @@ const Page = ({ id, title, children, isDark }) => (
     </Head>
     <Styles />
     <BodyClassName className={isDark ? 'bgc-dark' : 'bgc-light'} />
-    <Header pageId={id} pageName={title} isDark={isDark} />
+    {/* <Header pageId={id} pageName={title} isDark={isDark} /> */}
     <main>
       {children}
     </main>
