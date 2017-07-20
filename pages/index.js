@@ -9,6 +9,8 @@ import tinytime from 'tinytime';
 
 const formatDate = tinytime('{MM} {DD}').render;
 
+const getSekki = i => content.sekki[i];
+
 const parseDayOfMonth = dayOfMonth => {
   const year = (new Date()).getFullYear();
   const [month, day] = dayOfMonth.split('-');
@@ -28,29 +30,10 @@ const isActiveSekki = title => {
   return startDate <= now && now <= endDate;
 }
 
-const Sekki = ({ id, title, startDate, description, isActive }) => (
-  <div className={`mv-5 br-4 ${isActive ? `ta-center pt-7 pb-5 ph-4 bgc-${id}` : ''}`}>
-    <div className="mb-3">
-      <div className="f-sans fw-bold fs-5 ls-loose ta-center tt-uppercase">{title}</div>
-    </div>
-    <div>
-      <span className="f-sans fs-5 o-50p">
-        <span>{formatDate(parseDayOfMonth(startDate))}</span>
-        <span className="ph-2">&bull;</span>
-      </span>
-      <span>{description}</span>
-    </div>
+const Badge = ({ color, children }) => (
+  <div className={`d-inlineBlock br-4 ta-center f-sans ph-2 lh-2p0 fs-7 c-darkFaded bgc-${color} tt-uppercase ls-loose va-middle`}>
+    {children}
   </div>
-);
-
-const Season = ({ id, sekki }) => (
-  <section className={`pv-3 bgc-${id}`}>
-    <div className="w-90p mh-auto mw-40">
-      {sekki.map(({ id, title, startDate, description }, i) => (
-        <Sekki key={title} id={id} title={title} startDate={startDate} description={description} isActive={isActiveSekki(title)} />
-      ))}
-    </div>
-  </section>
 );
 
 export default () => {
@@ -69,34 +52,71 @@ export default () => {
           <p>Until 1873, farmers in China and Japan broke the calendar year down into 24 <em>sekki</em> or “small seasons.” They didn't have specific dates marking the start of the season. Instead, these seasons divided up the year by natural phenomena:</p>
         </div>
         <div className="w-90p mh-auto mw-80">
-          <div className="mv-7 lh-2p0">
+          <div className="d-none-s mv-6">
+            {sekkis.map((sekki, i) => {
+              const isLast = i + 1 === sekkis.length;
+
+              return (
+                <div className="pv-3" style={isLast ? {} : { borderBottom: '1px rgba(0, 0, 0, 0.05) solid' }}>
+                    <div className="x xa-center mb-1">
+                      {isActiveSekki(sekki.title) && (
+                        <div className="mr-2">
+                          <Badge color={sekki.id}>Now</Badge>
+                        </div>
+                      )}
+                      <span className="o-50p">{formatDate(parseDayOfMonth(sekki.startDate))}</span>
+                    </div>
+                    <div><span className="fw-bold">{sekki.title}</span>. {sekki.notes}</div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="d-none d-block-s fs-5-m fs-4-m mv-7 va-middle">
             <table>
               <thead className="ta-left">
                 <tr>
-                  <th>Season</th>
-                  <th />
-                  <th colSpan={2}>Name</th>
-                  <th>Meaning</th>
-                  <th>Associations</th>
-                  <th>Approx. Date</th>
+                  <th className="pa-1 d-none d-tableCell-m">Season</th>
+                  <th className="pa-1 d-none d-tableCell-m" colSpan={2}>Name</th>
+                  <th className="pa-1">Meaning</th>
+                  <th className="pa-1">Associations</th>
+                  <th className="pa-1" />
+                  <th className="pa-1">Approx. Date</th>
                 </tr>
               </thead>
               <tbody>
-                {sekkis.map((sekki, i) => (
-                  <tr key={sekki.id}>
-                    <td>{seasons.indexOf(sekki.season) === i ? titleize(sekki.season) : ''}</td>
-                    <td>
-                      {isActiveSekki(sekki.title) && (
-                        <div className={`br-round w-0p5 h-0p5 bgc-${sekki.id} va-middle`} />
-                      )}
-                    </td>
-                    <td>{titleize(sekki.romanji)}</td>
-                    <td>{sekki.kanji}</td>
-                    <td>{sekki.title}</td>
-                    <td>{sekki.notes}</td>
-                    <td>{formatDate(parseDayOfMonth(sekki.startDate))}</td>
-                  </tr>
-                ))}
+                {sekkis.map((sekki, i) => {
+                  const isActive = isActiveSekki(sekki.title)
+                  const isNextActive = !isActive && getSekki(i + 1) && isActiveSekki(getSekki(i + 1).title);
+                  const isPrevActive = !isActive && !isNextActive && getSekki(i - 1) && isActiveSekki(getSekki(i - 1).title);
+
+                  const cellProps = { className: 'pa-2' };
+
+                  if (isActive) {
+                    cellProps.className = `pa-2 pv-2`;
+                  } else if (isNextActive) {
+                    cellProps.className = 'pa-2 pb-4';
+                  } else if (isPrevActive) {
+                    cellProps.className = 'pa-2 pt-4';
+                  }
+
+                  return (
+                    <tr key={sekki.id}>
+                      <td className={`d-none d-tableCell-m ${cellProps.className}`}>{seasons.indexOf(sekki.season) === i ? titleize(sekki.season) : ''}</td>
+                      <td className={`d-none d-tableCell-m ${cellProps.className}`}>{titleize(sekki.romanji)}</td>
+                      <td className={`d-none d-tableCell-m ${cellProps.className}`}><span className="fs-5 ls-loose">{sekki.kanji}</span></td>
+                      <td {...cellProps}>{sekki.title}</td>
+                      <td {...cellProps}>{sekki.notes}</td>
+                      <td {...cellProps}>
+                        {isActive && (
+                          <div className="mr-3">
+                            <Badge color={sekki.id}>Now</Badge>
+                          </div>
+                        )}
+                      </td>
+                      <td {...cellProps}>{formatDate(parseDayOfMonth(sekki.startDate))}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -107,14 +127,6 @@ export default () => {
           <p className="mt-6 fs-5 o-50p">I'd love to push this idea further, to make it more useful for people. If you have ideas of how you'd like to see this stuff, throw a note on <a href="https://github.com/rosszurowski/small-seasons">this Github repo</a>.</p>
         </div>
       </section>
-      {/* <div>
-        {map(grouped, (sekki, key) => (
-          <Season key={key} id={key} sekki={sekki} />
-        ))}
-        {map(grouped, (sekki, key) => (
-          <Season key={key} id={key} sekki={sekki} />
-        ))}
-      </div> */}
     </Page>
   );
 }

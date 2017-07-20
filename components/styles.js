@@ -49,6 +49,7 @@ const colors = {
   black: '#242424',
   gray: '#9fa0a0',
   dark: '#353126',
+  darkFaded: 'rgba(54, 49, 38, 0.5)',
   light: '#f7f6f6',
   ...seasonColors,
   ...sekkiColors,
@@ -83,6 +84,12 @@ const classes = (suffix = '') => `
   ${fontSize.map((val, i) => `
     .fs-${i+1}${suffix} { font-size: ${val}px; }
   `).join('')}
+
+  .d-none${suffix} { display: none; }
+  .d-inline${suffix} { display: inline; }
+  .d-inlineBlock${suffix} { display: inline-block; }
+  .d-block${suffix} { display: block; }
+  .d-tableCell${suffix} { display: table-cell; }
 `;
 
 const getSelectorValue = val => val.toString().replace(/\./g, 'p');
@@ -94,6 +101,11 @@ const sizesString = map(sizes, (val, key) => `
   .h-${getSelectorValue(val)} { height: ${val}rem; }
 `).join('');
 const opacityString = map(opacity, (val, key) => `.o-${getSelectorValue(val)} { opacity: ${val}; }`).join('\n');
+const responsiveStyles = `
+  ${classes()}
+  @media only screen and (min-width: 481px) { ${classes('-s')} }
+  @media only screen and (min-width: 769px) { ${classes('-m')} }
+`;
 
 export default () => (
   <style jsx global>{`
@@ -132,6 +144,7 @@ export default () => (
 
     html {
       background-color: ${colors.light};
+      color: ${colors.dark};
       font-family: ${font.serif};
       font-size: 16px;
       line-height: 1.5;
@@ -148,6 +161,7 @@ export default () => (
 
     table {
       width: 100%;
+      border-collapse: collapse;
     }
 
     .f-serif { font-family: ${font.serif}; }
@@ -173,38 +187,8 @@ export default () => (
     .h-80vh { height: 80vh; }
     .h-100vh { height: 100vh; }
 
-    .c1{width:8.333333333333332%}
-    .c2{width:16.666666666666664%}
-    .c3{width:25%}
-    .c4{width:33.33333333333333%}
-    .c5{width:41.66666666666667%}
-    .c6{width:50%}
-    .c7{width:58.333333333333336%}
-    .c8{width:66.66666666666666%}
-    .c9{width:75%}
-    .c10{width:83.33333333333334%}
-    .c11{width:91.66666666666666%}
-    .c12{width:100%}
-    .co0{margin-left:0}
-    .co1{margin-left:8.333333333333332%}
-    .co2{margin-left:16.666666666666664%}
-    .co3{margin-left:25%}
-    .co4{margin-left:33.33333333333333%}
-    .co5{margin-left:41.66666666666667%}
-    .co6{margin-left:50%}
-    .co7{margin-left:58.333333333333336%}
-    .co8{margin-left:66.66666666666666%}
-    .co9{margin-left:75%}
-    .co10{margin-left:83.33333333333334%}
-    .co11{margin-left:91.66666666666666%}
-    .co12{margin-left:100%}
-
     .br-4 { border-radius: 4px; }
     .br-round { border-radius: 50%; }
-
-    .d-inline { display: inline; }
-    .d-inlineBlock { display: inline-block; }
-    .d-block { display: block; }
 
     .p-relative { position: relative; }
     .p-absolute { position: absolute; }
@@ -238,7 +222,7 @@ export default () => (
     .xw-noWrap { flex-wrap: nowrap; }
 
     .fs-italic { font-style: italic; }
-    .ls-loose { letter-spacing: 0.5px; }
+    .ls-loose { letter-spacing: 0.75px; }
 
     .ofx-scroll { overflow-x: scroll; }
     .ofx-hidden { overflow-x: hidden; }
@@ -246,6 +230,7 @@ export default () => (
     .lh-1p0 { line-height: 1.0; }
     .lh-1p5 { line-height: 1.5; }
     .lh-2p0 { line-height: 2.0; }
+    .lh-2p5 { line-height: 2.5; }
 
     .ta-left { text-align: left; }
     .ta-center { text-align: center; }
@@ -258,16 +243,10 @@ export default () => (
     .va-middle { vertical-align: middle; }
     .va-bottom { vertical-align: bottom; }
 
+    ${responsiveStyles}
+
     .z-1 { z-index: 1; }
     .z-2 { z-index: 2; }
     .z-9 { z-index: 9; }
-
-    ${classes()}
-    @media only screen and (min-width: 479px) {
-      ${classes('-s')}
-    }
-    @media only screen and (min-width: 767px) {
-      ${classes('-m')}
-    }
   `}</style>
 );
