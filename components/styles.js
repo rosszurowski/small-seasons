@@ -105,6 +105,7 @@ const responsiveStyles = `
   ${classes()}
   @media only screen and (min-width: 481px) { ${classes('-s')} }
   @media only screen and (min-width: 769px) { ${classes('-m')} }
+  @media only screen and (min-width: 1281px) { ${classes('-l')} }
 `;
 
 export default () => (
@@ -231,6 +232,8 @@ export default () => (
     .lh-1p5 { line-height: 1.5; }
     .lh-2p0 { line-height: 2.0; }
     .lh-2p5 { line-height: 2.5; }
+
+    .ws-noWrap { white-space: nowrap; }
 
     .ta-left { text-align: left; }
     .ta-center { text-align: center; }

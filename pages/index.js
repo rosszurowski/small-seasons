@@ -71,16 +71,16 @@ export default () => {
               );
             })}
           </div>
-          <div className="d-none d-block-s fs-5-m fs-4-m mv-7 va-middle">
+          <div className="d-none d-block-s fs-5 fs-4-l mv-7 va-middle">
             <table>
               <thead className="ta-left">
                 <tr>
-                  <th className="pa-1 d-none d-tableCell-m">Season</th>
-                  <th className="pa-1 d-none d-tableCell-m" colSpan={2}>Name</th>
-                  <th className="pa-1">Meaning</th>
-                  <th className="pa-1">Associations</th>
-                  <th className="pa-1" />
-                  <th className="pa-1">Approx. Date</th>
+                  <th className="pa-2 d-none d-tableCell-m">Season</th>
+                  <th className="pa-2 d-none d-tableCell-m" colSpan={2}>Name</th>
+                  <th className="pa-2">Meaning</th>
+                  <th className="pa-2">Associations</th>
+                  <th className="pa-2" />
+                  <th className="pa-2">Approx. Date</th>
                 </tr>
               </thead>
               <tbody>
@@ -101,19 +101,21 @@ export default () => {
 
                   return (
                     <tr key={sekki.id}>
-                      <td className={`d-none d-tableCell-m ${cellProps.className}`}>{seasons.indexOf(sekki.season) === i ? titleize(sekki.season) : ''}</td>
-                      <td className={`d-none d-tableCell-m ${cellProps.className}`}>{titleize(sekki.romanji)}</td>
-                      <td className={`d-none d-tableCell-m ${cellProps.className}`}><span className="fs-5 ls-loose">{sekki.kanji}</span></td>
-                      <td {...cellProps}>{sekki.title}</td>
-                      <td {...cellProps}>{sekki.notes}</td>
-                      <td {...cellProps}>
+                      <td className={`d-none d-tableCell-m`}><div {...cellProps}>{seasons.indexOf(sekki.season) === i ? titleize(sekki.season) : ''}</div></td>
+                      <td className={`d-none d-tableCell-m`}><div {...cellProps}>{titleize(sekki.romanji)}</div></td>
+                      <td className={`d-none d-tableCell-m`}><div {...cellProps}><span className="fs-5 ls-loose ws-noWrap">{sekki.kanji}</span></div></td>
+                      <td><div {...cellProps}>{sekki.title}</div></td>
+                      <td><div {...cellProps}>{sekki.notes}</div></td>
+                      <td>
                         {isActive && (
-                          <div className="mr-3">
-                            <Badge color={sekki.id}>Now</Badge>
+                          <div {...cellProps}>
+                            <div className="mr-3">
+                              <Badge color={sekki.id}>Now</Badge>
+                            </div>
                           </div>
                         )}
                       </td>
-                      <td {...cellProps}>{formatDate(parseDayOfMonth(sekki.startDate))}</td>
+                      <td><div {...cellProps}>{formatDate(parseDayOfMonth(sekki.startDate))}</div></td>
                     </tr>
                   );
                 })}
