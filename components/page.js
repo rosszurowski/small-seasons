@@ -11,6 +11,7 @@ const Page = ({ id, title, children, isDark }) => (
     <Head>
       <title>{title ? `${title} — Small Seasons` : `Small Seasons`}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="shortcut icon" href="/static/favicon.png" type="image/png" />
     </Head>
     <Styles />
     {/* <Header pageId={id} pageName={title} isDark={isDark} /> */}
