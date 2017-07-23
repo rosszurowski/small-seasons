@@ -5,12 +5,9 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "emotion": "^3.0.2",
     "next": "beta",
     "react": "^15.6.0",
-    "react-body-classname": "^1.2.0",
     "react-dom": "^15.6.0",
-    "react-swipe": "^5.0.8",
     "tinytime": "^0.2.6"
   },
   "scripts": {

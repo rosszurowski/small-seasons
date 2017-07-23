@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import BodyClassName from 'react-body-classname';
-
-import Header from 'components/header';
 import Styles from 'components/styles';
 
 const Page = ({ id, title, children, isDark }) => (
@@ -14,7 +11,6 @@ const Page = ({ id, title, children, isDark }) => (
       <link rel="shortcut icon" href="/static/favicon.png" type="image/png" />
     </Head>
     <Styles />
-    {/* <Header pageId={id} pageName={title} isDark={isDark} /> */}
     <main>
       {children}
     </main>
