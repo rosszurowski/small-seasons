@@ -85,19 +85,11 @@ export default () => {
               </thead>
               <tbody>
                 {sekkis.map((sekki, i) => {
-                  const isActive = isActiveSekki(sekki.title)
+                  const isActive = typeof global.window === 'undefined' ? false : isActiveSekki(sekki.title);
                   const isNextActive = !isActive && getSekki(i + 1) && isActiveSekki(getSekki(i + 1).title);
                   const isPrevActive = !isActive && !isNextActive && getSekki(i - 1) && isActiveSekki(getSekki(i - 1).title);
 
                   const cellProps = { className: 'pa-2' };
-
-                  if (isActive) {
-                    cellProps.className = `pa-2 pv-2`;
-                  } else if (isNextActive) {
-                    cellProps.className = 'pa-2 pb-4';
-                  } else if (isPrevActive) {
-                    cellProps.className = 'pa-2 pt-4';
-                  }
 
                   return (
                     <tr key={sekki.id}>
