@@ -2,7 +2,7 @@
 
 A micro-site sharing a list of 24 small seasons, or [sekki](https://www.lang.nagoya-u.ac.jp/~matsuoka/24-sekki.html) that break up the year.
 
-[Check out the site](https://smallseasons.guide) for more info.
+[Check out the site](https://smallseasons.guide) for more info, or follow [@smallseasonsbot](https://twitter.com/smallseasonsbot).
 
 ### License
 
