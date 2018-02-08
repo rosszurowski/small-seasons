@@ -57,7 +57,7 @@ const colors = {
 
 const font = {
   sans: '-apple-system, BlinkMacSystemFont, sans-serif',
-  serif: `'Quadraat-Regular', serif`,
+  serif: `Quadraat, serif`,
 };
 
 const classes = (suffix = '') => `
@@ -115,8 +115,8 @@ export default () => (
       font-weight: normal;
       font-style: normal;
       src:
-        url('/static/fonts/Quadraat-Regular.woff') format('woff'),
-        url('/static/fonts/Quadraat-Regular.woff2') format('woff2');
+        url('/static/fonts/Quadraat-Regular.woff2') format('woff2'),
+        url('/static/fonts/Quadraat-Regular.woff') format('woff');
     }
 
     @font-face {
@@ -124,8 +124,8 @@ export default () => (
       font-weight: normal;
       font-style: italic;
       src:
-        url('/static/fonts/Quadraat-RegularItalic.woff') format('woff'),
-        url('/static/fonts/Quadraat-RegularItalic.woff2') format('woff2');
+        url('/static/fonts/Quadraat-RegularItalic.woff2') format('woff2'),
+        url('/static/fonts/Quadraat-RegularItalic.woff') format('woff');
     }
 
     @font-face {
@@ -133,8 +133,8 @@ export default () => (
       font-weight: bold;
       font-style: normal;
       src:
-        url('/static/fonts/Quadraat-Bold.woff') format('woff'),
-        url('/static/fonts/Quadraat-Bold.woff2') format('woff2');
+        url('/static/fonts/Quadraat-Bold.woff2') format('woff2'),
+        url('/static/fonts/Quadraat-Bold.woff') format('woff');
     }
 
     @font-face {
@@ -142,8 +142,8 @@ export default () => (
       font-weight: bold;
       font-style: italic;
       src:
-        url('/static/fonts/Quadraat-BoldItalic.woff') format('woff'),
-        url('/static/fonts/Quadraat-BoldItalic.woff2') format('woff2');
+        url('/static/fonts/Quadraat-BoldItalic.woff2') format('woff2'),
+        url('/static/fonts/Quadraat-BoldItalic.woff') format('woff');
     }
 
     *,

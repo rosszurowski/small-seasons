@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Page from 'components/page';
 
 import uniq from 'lodash/uniq';
@@ -57,7 +57,7 @@ export default () => {
               const isLast = i + 1 === sekkis.length;
 
               return (
-                <div className="pv-3" style={isLast ? {} : { borderBottom: '1px rgba(0, 0, 0, 0.05) solid' }}>
+                <div key={sekki.id} className="pv-3" style={isLast ? {} : { borderBottom: '1px rgba(0, 0, 0, 0.05) solid' }}>
                     <div className="x xa-center mb-1">
                       {isActiveSekki(sekki.title) && (
                         <div className="mr-2">
