@@ -53,7 +53,7 @@
     {
       "id": "koku",
       "kanji": "穀雨",
-      "romanji": "Koku",
+      "romanji": "Kokū",
       "title": "Rain for harvests",
       "startDate": "04-21",
       "notes": "Reeds sprout by rivers, rice seedlings grow.",
@@ -73,7 +73,7 @@
     {
       "id": "shoman",
       "kanji": "小満",
-      "romanji": "Shoman",
+      "romanji": "Shōman",
       "title": "Small blooming",
       "startDate": "05-21",
       "notes": "Flowers and plants bloom, wheat ripens.",
@@ -83,7 +83,7 @@
     {
       "id": "boshu",
       "kanji": "芒種",
-      "romanji": "Boshu",
+      "romanji": "Bōshu",
       "title": "Seeds and cereals",
       "startDate": "06-05",
       "notes": "Praying mantises hatch, fireflies come out. Time to seed the soil.",
@@ -103,7 +103,7 @@
     {
       "id": "shousho",
       "kanji": "小暑",
-      "romanji": "Shousho",
+      "romanji": "Shōsho",
       "title": "Small heat",
       "startDate": "07-07",
       "notes": "Warm winds blow, young hawks learn to fly.",
@@ -173,7 +173,7 @@
     {
       "id": "soko",
       "kanji": "霜降",
-      "romanji": "Soko",
+      "romanji": "Sōkō",
       "title": "Frosting",
       "startDate": "10-23",
       "notes": "The first frosts, maple leaves turn yellow.",
@@ -193,7 +193,7 @@
     {
       "id": "shosetsu",
       "kanji": "小雪",
-      "romanji": "Shosetsu",
+      "romanji": "Shōsetsu",
       "title": "Small snow",
       "startDate": "11-23",
       "notes": "Light snow, the last leaves have fallen from trees.",
@@ -213,7 +213,7 @@
     {
       "id": "toji",
       "kanji": "冬至",
-      "romanji": "Toji",
+      "romanji": "Tōji",
       "title": "Winter solstice",
       "startDate": "12-22",
       "notes": "Shortest days of the year.",
@@ -223,7 +223,7 @@
     {
       "id": "shokan",
       "kanji": "小寒",
-      "romanji": "Shokan",
+      "romanji": "Shōkan",
       "title": "Small cold",
       "startDate": "01-06",
       "notes": "Temperatures quickly drop.",
