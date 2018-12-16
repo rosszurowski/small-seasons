@@ -118,8 +118,8 @@ export default () => {
         <div className="w-90p mh-auto mw-40 fs-4">
           <p>Living in cities, most of us don’t need to know if the rains are late this year, or when the bushwarblers will start warbling.</p>
           <p>But it's nice to have a more fine-grained way of thinking about the year; dividing such a big span of time into four big seasons feels really clumsy. Thinking in two week <em>sekki</em> seems to match how my life and environment changes a lot better.</p>
-          <p><a href="/">This site</a> and <a href="https://twitter.com/smallseasonsbot" target="_blank">this twitterbot</a> are a way for <a href="https://rosszurowski.com/">me</a> to enshrine this idea.</p>
-          <p className="mt-6 fs-5 o-50p">I'd love to push this idea further, to make it more useful for people. If you have ideas of how you'd like to see this stuff, throw a note on <a href="https://github.com/rosszurowski/small-seasons">this Github repo</a>.</p>
+          <p>Follow along with the changing of the seasons on this site, with <a href="https://twitter.com/smallseasonsbot" target="_blank">the @smallseasonsbot twitterbot</a>, or on your own calendar (<a href="https://is.gd/ZtK8JL">Google</a>, <a href="https://is.gd/3QB6JT">iCal</a>). These are a few ways for <a href="https://rosszurowski.com/">me</a> to enshrine this idea.</p>
+          <p className="mt-6 fs-5 o-50p">I'd love to push this idea further, make it more useful for people. If you have ideas of how you'd like to see this stuff, throw a note on <a href="https://github.com/rosszurowski/small-seasons">this Github repo</a>.</p>
         </div>
       </section>
     </Page>
