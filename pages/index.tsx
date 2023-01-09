@@ -183,21 +183,21 @@ export default function HomePage() {
 }
 
 const formatDate = tinytime("{MM} {DD}").render;
-const titleize = (text) =>
+const titleize = (text: string) =>
   text
     .toLowerCase()
     .split(" ")
     .map((i, j) => i.charAt(0).toUpperCase() + i.slice(1))
     .join(" ");
 
-const parseDayOfMonth = (dayOfMonth) => {
+const parseDayOfMonth = (dayOfMonth: string) => {
   const year = new Date().getFullYear();
-  const [month, day] = dayOfMonth.split("-");
+  const [month, day] = dayOfMonth.split("-").map((n) => Number.parseInt(n, 10));
 
   return new Date(year, month - 1, day);
 };
 
-const isActiveSekki = (title) => {
+const isActiveSekki = (title: string) => {
   const i = content.sekki.findIndex((sekki) => sekki.title === title);
   const current = content.sekki[i];
   const next = content.sekki[(i + 1) % content.sekki.length];
@@ -209,7 +209,13 @@ const isActiveSekki = (title) => {
   return startDate <= now && now <= endDate;
 };
 
-const Badge = ({ color, children }) => (
+const Badge = ({
+  color,
+  children,
+}: {
+  color: string;
+  children: React.ReactNode;
+}) => (
   <div
     className={`d-inlineBlock br-4 ta-center f-sans ph-2 lh-2p0 fs-7 c-darkFaded bgc-${color} tt-uppercase ls-loose va-middle`}
   >
