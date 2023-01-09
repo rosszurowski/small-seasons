@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Quadraat";
+    font-weight: normal;
+    font-style: normal;
+    src: url("/fonts/Quadraat-Regular.woff2") format("woff2"),
+      url("/fonts/Quadraat-Regular.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Quadraat";
+    font-weight: normal;
+    font-style: italic;
+    src: url("/fonts/Quadraat-RegularItalic.woff2") format("woff2"),
+      url("/fonts/Quadraat-RegularItalic.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Quadraat";
+    font-weight: bold;
+    font-style: normal;
+    src: url("/fonts/Quadraat-Bold.woff2") format("woff2"),
+      url("/fonts/Quadraat-Bold.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Quadraat";
+    font-weight: bold;
+    font-style: italic;
+    src: url("/fonts/Quadraat-BoldItalic.woff2") format("woff2"),
+      url("/fonts/Quadraat-BoldItalic.woff") format("woff");
+  }
+
+  html {
+    @apply font-serif leading-normal;
+  }
+
+  p a {
+    @apply border-black/25 border-b hover:border-black/75 transition-colors;
+  }
+}

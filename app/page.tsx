@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
-import Head from "next/head";
 import tinytime from "tinytime";
-import Styles from "../components/styles";
+import clsx from "clsx";
 import content from "../data/content.json";
 
 export default function HomePage() {
@@ -10,20 +9,14 @@ export default function HomePage() {
 
   return (
     <div>
-      <Head>
-        <title>Small Seasons</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-      </Head>
-      <Styles />
       <Suspense>
         <main>
-          <section className="pv-6 fs-4">
-            <div className="w-90p mh-auto mw-40">
-              <div className="mv-4 h-50vh x xd-column xj-center">
+          <section className="py-16 text-xl leading-normal">
+            <div className="w-[90%] mx-auto max-w-[40rem]">
+              <div className="my-6 h-[50vh] flex flex-col justify-center">
                 A guide to understanding
                 <br />
-                <span className="c-hakuro">Small Seasons</span>
+                <span className="text-hakuro">Small Seasons</span>
               </div>
               <p>
                 In agricultural days, staying in-tune with the seasons was
@@ -35,101 +28,97 @@ export default function HomePage() {
                 Knowing what was happening with nature was the difference
                 between a plentiful harvest and a barren crop.
               </p>
-              <p>
+              <p className="mt-5">
                 Prior to the Gregorian calendar, farmers in China and Japan
                 broke each year down into 24 <em>sekki</em> or “small seasons.”
                 These seasons didn't use dates to mark seasons, but instead,
                 they divided up the year by natural phenomena:
               </p>
             </div>
-            <div className="w-90p mh-auto mw-80">
-              <div className="d-none-s mv-6">
-                {sekkis.map((sekki, i) => {
-                  const isLast = i + 1 === sekkis.length;
-
-                  return (
-                    <div
-                      key={sekki.id}
-                      className="pv-3"
-                      style={
-                        isLast
-                          ? {}
-                          : { borderBottom: "1px rgba(0, 0, 0, 0.05) solid" }
-                      }
-                    >
-                      <div className="x xa-center mb-1">
-                        {isActiveSekki(sekki.title) && (
-                          <div className="mr-2">
-                            <Badge color={sekki.id}>Now</Badge>
-                          </div>
-                        )}
-                        <span className="o-50p">
-                          {formatDate(parseDayOfMonth(sekki.startDate))}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="fw-bold">{sekki.title}</span>.{" "}
-                        {sekki.notes}
-                      </div>
+            <div className="w-[90%] mx-auto max-w-7xl">
+              <div className="sm:hidden my-16">
+                {sekkis.map((sekki) => (
+                  <div key={sekki.id} className="py-4 border-b border-black/10">
+                    <div className="flex items-center mb-1">
+                      {isActiveSekki(sekki.title) && (
+                        <div className="mr-6">
+                          {/* @ts-expect-error */}
+                          <Badge color={sekki.id}>Now</Badge>
+                        </div>
+                      )}
+                      <span className="opacity-50">
+                        {formatDate(parseDayOfMonth(sekki.startDate))}
+                      </span>
                     </div>
-                  );
-                })}
+                    <div>
+                      <span className="font-bold">{sekki.title}</span>.{" "}
+                      {sekki.notes}
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="d-none d-block-s fs-5 fs-4-l mv-7 va-middle">
-                <table>
-                  <thead className="ta-left">
+              <div className="hidden sm:block align-middle py-32 text-base xl:text-lg">
+                <table className="w-full border-collapse">
+                  <thead className="text-left">
                     <tr>
-                      <th className="pa-2 d-none d-tableCell-m">Season</th>
-                      <th className="pa-2 d-none d-tableCell-m" colSpan={2}>
+                      <th className={clsx(cellClass, "hidden md:table-cell")}>
+                        Season
+                      </th>
+                      <th
+                        className={clsx(cellClass, "hidden md:table-cell")}
+                        colSpan={2}
+                      >
                         Name
                       </th>
-                      <th className="pa-2">Meaning</th>
-                      <th className="pa-2">Associations</th>
-                      <th className="pa-2" />
-                      <th className="pa-2">Approx. Date</th>
+                      <th className={cellClass}>Meaning</th>
+                      <th className={cellClass}>Associations</th>
+                      <th className={cellClass} />
+                      <th className={cellClass}>Approx. Date</th>
                     </tr>
                   </thead>
                   <tbody>
                     {sekkis.map((sekki, i) => {
                       const isActive = isActiveSekki(sekki.title);
-                      const cellProps = { className: "pa-2" };
 
                       return (
                         <tr key={sekki.id}>
-                          <td className={`d-none d-tableCell-m`}>
-                            <div {...cellProps}>
+                          <td className="hidden md:table-cell">
+                            <div className={cellClass}>
                               {seasons.indexOf(sekki.season) === i
                                 ? titleize(sekki.season)
                                 : ""}
                             </div>
                           </td>
-                          <td className={`d-none d-tableCell-m`}>
-                            <div {...cellProps}>{titleize(sekki.romanji)}</div>
+                          <td className="hidden md:table-cell">
+                            <div className={cellClass}>
+                              {titleize(sekki.romanji)}
+                            </div>
                           </td>
-                          <td className={`d-none d-tableCell-m`}>
-                            <div {...cellProps}>
-                              <span className="fs-5 ls-loose ws-noWrap">
+                          <td className="hidden md:table-cell">
+                            <div className={cellClass}>
+                              <span className="text-base tracking-wide whitespace-nowrap">
                                 {sekki.kanji}
                               </span>
                             </div>
                           </td>
                           <td>
-                            <div {...cellProps}>{sekki.title}</div>
+                            <div className={cellClass}>{sekki.title}</div>
                           </td>
                           <td>
-                            <div {...cellProps}>{sekki.notes}</div>
+                            <div className={cellClass}>{sekki.notes}</div>
                           </td>
                           <td>
                             {isActive && (
-                              <div {...cellProps}>
-                                <div className="mr-3">
+                              <div className={cellClass}>
+                                <div className="mr-4">
+                                  {/* @ts-expect-error */}
                                   <Badge color={sekki.id}>Now</Badge>
                                 </div>
                               </div>
                             )}
                           </td>
                           <td>
-                            <div {...cellProps}>
+                            <div className={cellClass}>
                               {formatDate(parseDayOfMonth(sekki.startDate))}
                             </div>
                           </td>
@@ -140,18 +129,18 @@ export default function HomePage() {
                 </table>
               </div>
             </div>
-            <div className="w-90p mh-auto mw-40 fs-4">
+            <div className="w-[90%] mx-auto max-w-[40rem]">
               <p>
                 Living in cities, most of us don’t need to know if the rains are
                 late this year, or when the bushwarblers will start warbling.
               </p>
-              <p>
+              <p className="mt-5">
                 But it's nice to have a more fine-grained way of thinking about
                 the year; dividing such a big span of time into four big seasons
                 feels really clumsy. Thinking in two week <em>sekki</em> seems
                 to match how my life and environment changes a lot better.
               </p>
-              <p>
+              <p className="mt-5">
                 Follow along with the changing of the seasons on this site, with{" "}
                 <a href="https://twitter.com/smallseasonsbot" target="_blank">
                   the @smallseasonsbot twitterbot
@@ -165,7 +154,7 @@ export default function HomePage() {
                 <a href="https://rosszurowski.com/">me</a> to enshrine this
                 idea.
               </p>
-              <p className="mt-6 fs-5 o-50p">
+              <p className="text-base opacity-50 mt-16">
                 I'd love to push this idea further, make it more useful for
                 people. If you have ideas of how you'd like to see this stuff,
                 throw a note on{" "}
@@ -209,16 +198,72 @@ const isActiveSekki = (title: string) => {
   return startDate <= now && now <= endDate;
 };
 
+type Sekki =
+  | "shokan"
+  | "daikan"
+  | "risshun"
+  | "usui"
+  | "keichitsu"
+  | "shunbun"
+  | "seimei"
+  | "koku"
+  | "rikka"
+  | "shoman"
+  | "boshu"
+  | "geshi"
+  | "shousho"
+  | "taisho"
+  | "risshu"
+  | "shosho"
+  | "hakuro"
+  | "shubun"
+  | "kanro"
+  | "soko"
+  | "ritto"
+  | "shosetsu"
+  | "taisetsu"
+  | "toji";
+
 const Badge = ({
   color,
   children,
 }: {
-  color: string;
+  color: Sekki;
   children: React.ReactNode;
 }) => (
   <div
-    className={`d-inlineBlock br-4 ta-center f-sans ph-2 lh-2p0 fs-7 c-darkFaded bgc-${color} tt-uppercase ls-loose va-middle`}
+    className={clsx(
+      `inline-block rounded text-center font-sans px-1.5 py-1.5 tracking-widest text-[11px] leading-none text-white/50 uppercase ls-loose align-middle`,
+      {
+        "bg-shokan": color === "shokan",
+        "bg-daikan": color === "daikan",
+        "bg-risshun": color === "risshun",
+        "bg-usui": color === "usui",
+        "bg-keichitsu": color === "keichitsu",
+        "bg-shunbun": color === "shunbun",
+        "bg-seimei": color === "seimei",
+        "bg-koku": color === "koku",
+        "bg-rikka": color === "rikka",
+        "bg-shoman": color === "shoman",
+        "bg-boshu": color === "boshu",
+        "bg-geshi": color === "geshi",
+        "bg-shousho": color === "shousho",
+        "bg-taisho": color === "taisho",
+        "bg-risshu": color === "risshu",
+        "bg-shosho": color === "shosho",
+        "bg-hakuro": color === "hakuro",
+        "bg-shubun": color === "shubun",
+        "bg-kanro": color === "kanro",
+        "bg-soko": color === "soko",
+        "bg-ritto": color === "ritto",
+        "bg-shosetsu": color === "shosetsu",
+        "bg-taisetsu": color === "taisetsu",
+        "bg-toji": color === "toji",
+      }
+    )}
   >
     {children}
   </div>
 );
+
+const cellClass = "p-2";
