@@ -5,13 +5,9 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "next": "^12.2.5",
+    "next": "^13.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tinytime": "^0.2.6"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build"
   }
 }
