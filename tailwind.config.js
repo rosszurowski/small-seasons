@@ -1,3 +1,5 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./app/**/*.{ts,tsx}"],
@@ -39,7 +41,7 @@ module.exports = {
         toji: "#6787B9",
       },
       fontFamily: {
-        serif: "Quadraat, Times New Roman, serif",
+        serif: ["var(--font-quadraat)", ...fontFamily.serif],
       },
     },
   },

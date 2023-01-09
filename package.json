@@ -5,6 +5,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "@next/font": "^13.1.1",
     "clsx": "^1.2.1",
     "next": "^13.1.1",
     "react": "^18.2.0",
@@ -24,5 +25,8 @@
       "tailwindcss": {},
       "autoprefixer": {}
     }
+  },
+  "prettier": {
+    "semi": false
   }
 }
