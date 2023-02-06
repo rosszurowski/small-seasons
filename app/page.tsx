@@ -1,11 +1,11 @@
-import React, { Suspense } from "react";
-import tinytime from "tinytime";
-import clsx from "clsx";
-import content from "../data/content.json";
+import React, { Suspense } from "react"
+import tinytime from "tinytime"
+import clsx from "clsx"
+import content from "../data/content.json"
 
 export default function HomePage() {
-  const sekkis = content.sekki;
-  const seasons = sekkis.map((sekki) => sekki.season);
+  const sekkis = content.sekki
+  const seasons = sekkis.map((sekki) => sekki.season)
 
   return (
     <div>
@@ -78,7 +78,7 @@ export default function HomePage() {
                   </thead>
                   <tbody>
                     {sekkis.map((sekki, i) => {
-                      const isActive = isActiveSekki(sekki.title);
+                      const isActive = isActiveSekki(sekki.title)
 
                       return (
                         <tr key={sekki.id}>
@@ -123,7 +123,7 @@ export default function HomePage() {
                             </div>
                           </td>
                         </tr>
-                      );
+                      )
                     })}
                   </tbody>
                 </table>
@@ -141,12 +141,13 @@ export default function HomePage() {
                 to match how my life and environment changes a lot better.
               </p>
               <p className="mt-5">
-                Follow along with the changing of the seasons on this site, with{" "}
+                Follow along with the changing of the seasons on this site, with
+                @smallseasonsbot on{" "}
                 <a href="https://twitter.com/smallseasonsbot" target="_blank">
-                  the @smallseasonsbot twitterbot
+                  Twitter
                 </a>
-                , or on your own calendar (
-                <a href="https://is.gd/ZtK8JL">Google</a>,{" "}
+                , <a href="https://botsin.space/@smallseasons">Mastodon</a>, or
+                on your own calendar (<a href="https://is.gd/ZtK8JL">Google</a>,{" "}
                 <a href="https://gist.github.com/rosszurowski/c7132bf37f7344a775e262619f97ff18">
                   iCal
                 </a>
@@ -168,35 +169,35 @@ export default function HomePage() {
         </main>
       </Suspense>
     </div>
-  );
+  )
 }
 
-const formatDate = tinytime("{MM} {DD}").render;
+const formatDate = tinytime("{MM} {DD}").render
 const titleize = (text: string) =>
   text
     .toLowerCase()
     .split(" ")
     .map((i, j) => i.charAt(0).toUpperCase() + i.slice(1))
-    .join(" ");
+    .join(" ")
 
 const parseDayOfMonth = (dayOfMonth: string) => {
-  const year = new Date().getFullYear();
-  const [month, day] = dayOfMonth.split("-").map((n) => Number.parseInt(n, 10));
+  const year = new Date().getFullYear()
+  const [month, day] = dayOfMonth.split("-").map((n) => Number.parseInt(n, 10))
 
-  return new Date(year, month - 1, day);
-};
+  return new Date(year, month - 1, day)
+}
 
 const isActiveSekki = (title: string) => {
-  const i = content.sekki.findIndex((sekki) => sekki.title === title);
-  const current = content.sekki[i];
-  const next = content.sekki[(i + 1) % content.sekki.length];
+  const i = content.sekki.findIndex((sekki) => sekki.title === title)
+  const current = content.sekki[i]
+  const next = content.sekki[(i + 1) % content.sekki.length]
 
-  const now = new Date();
-  const startDate = parseDayOfMonth(current.startDate);
-  const endDate = parseDayOfMonth(next.startDate);
+  const now = new Date()
+  const startDate = parseDayOfMonth(current.startDate)
+  const endDate = parseDayOfMonth(next.startDate)
 
-  return startDate <= now && now <= endDate;
-};
+  return startDate <= now && now <= endDate
+}
 
 type Sekki =
   | "shokan"
@@ -222,14 +223,14 @@ type Sekki =
   | "ritto"
   | "shosetsu"
   | "taisetsu"
-  | "toji";
+  | "toji"
 
 const Badge = ({
   color,
   children,
 }: {
-  color: Sekki;
-  children: React.ReactNode;
+  color: Sekki
+  children: React.ReactNode
 }) => (
   <div
     className={clsx(
@@ -264,6 +265,6 @@ const Badge = ({
   >
     {children}
   </div>
-);
+)
 
-const cellClass = "p-2";
+const cellClass = "p-2"
