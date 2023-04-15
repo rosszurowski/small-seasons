@@ -5,6 +5,8 @@ import content from "../data/content.json"
 export const metadata = {
   metadataBase: new URL("https://smallseasons.guide"),
   title: "Small Seasons",
+  description:
+    "Prior to the Gregorian calendar, farmers in China and Japan broke each year down into 24 sekki, or ‘small seasons.’ Rather than using dates, these seasons were divided up by natural phenomena. This site documents these different sekki.",
   authors: [
     {
       name: "Ross Zurowski",
