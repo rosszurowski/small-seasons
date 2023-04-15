@@ -1,4 +1,4 @@
-dev: yarn.lock ## Run a local dev server
+dev: pnpm-lock.yaml ## Run a local dev server
 	@./node_modules/.bin/next dev
 .PHONY: dev
 
@@ -8,11 +8,11 @@ start: .next ## Run production server
 build: .next ## Build site for production
 	@./node_modules/.bin/next build
 
-.next: yarn.lock next.config.js $(shell fd -g '**/*.{js,jsx,ts,tsx,css}') public
+.next: pnpm-lock.yaml next.config.js $(shell fd -g '**/*.{js,jsx,ts,tsx,css}') public
 	@./node_modules/.bin/next build
 
-yarn.lock: node_modules package.json
-	@yarn install --frozen-lockfile
+pnpm-lock.yaml: node_modules package.json
+	@pnpm install
 	@touch -mr $(shell ls -Atd $? | head -1) $@
 
 node_modules:

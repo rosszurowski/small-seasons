@@ -1,7 +1,19 @@
 import React, { Suspense } from "react"
-import tinytime from "tinytime"
 import clsx from "clsx"
 import content from "../data/content.json"
+
+export const metadata = {
+  metadataBase: new URL("https://smallseasons.guide"),
+  title: "Small Seasons",
+  authors: [
+    {
+      name: "Ross Zurowski",
+      url: "https://rosszurowski.com",
+    },
+  ],
+}
+
+export const revalidate = 75600 // 21 hours
 
 export default function HomePage() {
   const sekkis = content.sekki
@@ -96,7 +108,7 @@ export default function HomePage() {
                           </td>
                           <td className="hidden md:table-cell">
                             <div className={cellClass}>
-                              <span className="text-base tracking-wide whitespace-nowrap">
+                              <span className="text-base tracking-wide whitespace-nowrap font-sans">
                                 {sekki.kanji}
                               </span>
                             </div>
@@ -172,7 +184,12 @@ export default function HomePage() {
   )
 }
 
-const formatDate = tinytime("{MM} {DD}").render
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+  }).format(date)
+}
 const titleize = (text: string) =>
   text
     .toLowerCase()
@@ -234,7 +251,9 @@ const Badge = ({
 }) => (
   <div
     className={clsx(
-      `inline-block rounded text-center font-sans px-1.5 py-1.5 tracking-widest text-[11px] leading-none text-white/50 uppercase ls-loose align-middle`,
+      `inline-block align-middle select-none`,
+      "font-sans tracking-wide text-[0.625rem] leading-none uppercase",
+      "rounded-full text-center px-2 py-1.5",
       {
         "bg-shokan": color === "shokan",
         "bg-daikan": color === "daikan",

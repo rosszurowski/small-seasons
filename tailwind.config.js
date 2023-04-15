@@ -1,4 +1,4 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -42,8 +42,9 @@ module.exports = {
       },
       fontFamily: {
         serif: ["var(--font-quadraat)", ...fontFamily.serif],
+        sans: [...fontFamily.sans],
       },
     },
   },
   plugins: [],
-};
+}

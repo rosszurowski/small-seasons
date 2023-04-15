@@ -1,5 +1,5 @@
 import React from "react"
-import localFont from "@next/font/local"
+import localFont from "next/font/local"
 import clsx from "clsx"
 import "./index.css"
 
