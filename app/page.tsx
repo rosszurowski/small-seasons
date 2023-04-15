@@ -56,8 +56,7 @@ export default function HomePage() {
                     <div className="flex items-center mb-1">
                       {isActiveSekki(sekki.title) && (
                         <div className="mr-6">
-                          {/* @ts-expect-error */}
-                          <Badge color={sekki.id}>Now</Badge>
+                          <Badge color={sekki.id as Sekki}>Now</Badge>
                         </div>
                       )}
                       <span className="opacity-50">
@@ -125,8 +124,7 @@ export default function HomePage() {
                             {isActive && (
                               <div className={cellClass}>
                                 <div className="mr-4">
-                                  {/* @ts-expect-error */}
-                                  <Badge color={sekki.id}>Now</Badge>
+                                  <Badge color={sekki.id as Sekki}>Now</Badge>
                                 </div>
                               </div>
                             )}
