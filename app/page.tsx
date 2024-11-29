@@ -161,8 +161,9 @@ export default function HomePage() {
                 >
                   Bluesky
                 </a>
-                , <a href="https://botsin.space/@smallseasons">Mastodon</a>, or
-                on your own calendar (<a href="https://is.gd/ZtK8JL">Google</a>,{" "}
+                , <a href="https://mastodon.social/@smallseasons">Mastodon</a>,
+                or on your own calendar (
+                <a href="https://is.gd/ZtK8JL">Google</a>,{" "}
                 <a href="https://gist.github.com/rosszurowski/c7132bf37f7344a775e262619f97ff18">
                   iCal
                 </a>
