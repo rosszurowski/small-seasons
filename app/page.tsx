@@ -155,8 +155,11 @@ export default function HomePage() {
               <p className="mt-5">
                 Follow along with the changing of the seasons on this site, with
                 @smallseasonsbot on{" "}
-                <a href="https://twitter.com/smallseasonsbot" target="_blank">
-                  Twitter
+                <a
+                  href="https://bsky.app/profile/smallseasonsbot.bsky.social"
+                  target="_blank"
+                >
+                  Bluesky
                 </a>
                 , <a href="https://botsin.space/@smallseasons">Mastodon</a>, or
                 on your own calendar (<a href="https://is.gd/ZtK8JL">Google</a>,{" "}
